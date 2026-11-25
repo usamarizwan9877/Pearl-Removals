@@ -8,6 +8,7 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
 import IncludedSection from "@/components/sections/IncludedSection";
 import FleetSection from "@/components/sections/FleetSection";
+import AreasSection from "@/components/sections/AreasSection";
 import QuoteSection from "@/components/sections/QuoteSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -25,6 +26,7 @@ export default function HomePage() {
         <AboutSection />
         <IncludedSection />
         <FleetSection />
+        <AreasSection />
         <QuoteSection />
         <FAQSection />
         <FinalCTA />

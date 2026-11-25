@@ -163,31 +163,102 @@ export const included = {
 export const fleet = {
   eyebrow: "On the road",
   title: { pre: "Spot the pearl, ", gold: "know you're in safe hands" } as Title,
-  intro: "Our pearl-white and midnight-navy vans are kept clean, well equipped and ready — from compact vans for smaller moves to Luton vans for full homes.",
-  images: [
-    { src: lutonVan, alt: "Pearl Removals Luton van outside a period townhouse", caption: "Luton vans for full home moves" },
-    { src: lutonVanRear, alt: "Rear doors of a Pearl Removals van with Move well. Arrive happy.", caption: "Move well. Arrive happy." },
-    { src: businessCards, alt: "Pearl Removals business cards", caption: "Your dedicated moving consultant" },
+  intro: "From the vans on your street to the tape on your boxes, everything carries the same calm promise — so you always know who's looking after your belongings.",
+  /* Showcase tabs — the first image of each is the large view */
+  tabs: [
+    {
+      key: "luton", label: "Luton vans", short: "For full home moves", icon: "truck",
+      text: "Spacious Luton vans for houses and larger moves — loaded carefully, strapped securely and wrapped in pearl-white and midnight-navy livery.",
+      points: ["Room for a full home", "Blankets & straps on board", "Clean, well-kept fleet"],
+      img: { src: lutonVan, alt: "Pearl Removals Luton van outside a period townhouse" },
+    },
+    {
+      key: "van", label: "Compact vans", short: "For flats, offices & smaller moves", icon: "building",
+      text: "Nimble panel vans for flats, single items and business moves — easy to park, quick to load and just as carefully handled.",
+      points: ["Ideal for city streets", "Great for office moves", "Same careful team"],
+      img: { src: panelVan, alt: "Pearl Removals panel van outside a modern building" },
+    },
+    {
+      key: "kit", label: "Our kit", short: "Uniforms, blankets & packaging", icon: "package",
+      text: "Uniformed movers, branded blankets, quality boxes and Pearl tape — the small details that keep your belongings protected and your move organised.",
+      points: ["Uniformed, recognisable team", "Quality packing materials", "Clearly labelled boxes"],
+      img: { src: brandKit, alt: "Pearl Removals uniforms, blankets, stationery and packaging" },
+    },
   ],
+  /* Scrolling brand strip */
+  strip: [
+    { src: lutonVanRear, alt: "Rear doors of a Pearl Removals van reading Move well. Arrive happy.", caption: "Move well. Arrive happy." },
+    { src: packingBox, alt: "Box sealed with Pearl Removals branded tape", caption: "Sealed with care" },
+    { src: businessCards, alt: "Pearl Removals business cards", caption: "Your moving consultant" },
+    { src: roomBoxes, alt: "Pearl Removals boxes in a bright new home", caption: "Settled in" },
+  ],
+};
+
+/* ── Areas we serve ──────────────────────────────────────
+ * TODO: TEMPORARY — copied from the Royals Removals areas until
+ * Pearl Removals confirms its base and the areas it covers.
+ * The first item is the hub at the centre of the map. To add an
+ * area, also give it a map position in AreasSection.tsx (SPOTS).
+ */
+export const areas = {
+  eyebrow: "Coverage",
+  title: { pre: "Areas We ", gold: "Serve" } as Title,
+  intro: "We cover Birmingham and the surrounding towns and cities across the West Midlands, bringing the same calm, careful service wherever you're moving.",
+  items: [
+    ["Birmingham", "birmingham"], ["Dudley", "dudley"], ["Sandwell", "sandwell"], ["Walsall", "walsall"],
+    ["Wolverhampton", "wolverhampton"], ["Solihull", "solihull"], ["Coventry", "coventry"], ["Lichfield", "lichfield"],
+    ["Redditch", "redditch"], ["Bromsgrove", "bromsgrove"], ["Wythall", "wythall"], ["Walmley", "walmley"],
+    ["Four Oaks", "four-oaks"], ["Hollywood", "hollywood"], ["Boldmere", "boldmere"], ["Barnt Green", "barnt-green"],
+    ["Droitwich Spa", "droitwich-spa"], ["Alcester", "alcester"], ["Tamworth", "tamworth"], ["Cannock", "cannock"],
+    ["Royal Leamington Spa", "royal-leamington-spa"], ["Nuneaton", "nuneaton"],
+  ].map(([label, slug]) => ({ label, slug, href: "/#quote" })),
+  viewAll: { label: "Not listed? Ask us", href: "/#quote" },
 };
 
 /* ── Quote ───────────────────────────────────────────────── */
 export const quote = {
   eyebrow: "Get a Quote",
   title: { pre: "Tell us about ", gold: "your move" } as Title,
-  intro: "Share a few details and we'll be in touch with a tailored quote.",
+  intro: "Three quick steps — about two minutes — and we'll come back with a quote tailored to your move.",
+  promises: [
+    { icon: "receipt", title: "No obligation", text: "A clear, tailored quote — no pressure to book." },
+    { icon: "calendar", title: "Planned around you", text: "Dates, timings and extras agreed up front." },
+    { icon: "shield", title: "Careful from day one", text: "Wrapping and protection included as standard." },
+  ],
+  wizard: [
+    { label: "Your move", hint: "Where and when" },
+    { label: "Your home", hint: "Size and extras" },
+    { label: "Your details", hint: "How we reach you" },
+  ],
+  types: [
+    { value: "Home removal", icon: "home" },
+    { value: "Business move", icon: "building" },
+    { value: "Packing support", icon: "package" },
+    { value: "Not sure yet", icon: "pearl" },
+  ],
+  sizes: ["Studio / 1 bed", "2 bedrooms", "3 bedrooms", "4+ bedrooms", "Small office", "Larger premises"],
+  extras: ["Packing service", "Dismantling & reassembly", "Fragile or special items", "Help unpacking"],
   fields: {
+    from: "Moving from (postcode)",
+    to: "Moving to (postcode)",
+    date: "Preferred move date",
+    flexible: "My dates are flexible",
+    type: "Type of move",
+    size: "Size of move",
+    extras: "Anything extra? (optional)",
     name: "Your name",
     phone: "Phone number",
     email: "Email address",
-    from: "Moving from (postcode)",
-    to: "Moving to (postcode)",
-    date: "Move date",
-    type: "Type of move",
+    contact: "Best way to reach you",
+    notes: "Anything we should know? (optional)",
   },
-  types: ["Home removal", "Business move", "Packing support", "Not sure yet"],
-  submit: "Get a Quote",
-  success: "Thank you — we'll be in touch with your tailored quote.",
+  contactPrefs: ["Phone", "Email", "Either"],
+  next: "Continue",
+  back: "Back",
+  submit: "Get My Quote",
+  review: "Your move at a glance",
+  successTitle: "Thank you — your request is in.",
+  success: "We'll be in touch with your tailored quote soon.",
   privacy: "Your details are only used to prepare your quote.",
   steps: ["Get a quote", "Plan your move", "Settle in"],
 };
@@ -226,6 +297,7 @@ export const footer = {
   company: [
     { label: "About Us", href: "/#about" },
     { label: "Moving Guide", href: "/#process" },
+    { label: "Areas We Serve", href: "/#areas" },
     { label: "FAQs", href: "/#faqs" },
     { label: "Contact", href: "/#quote" },
   ],
