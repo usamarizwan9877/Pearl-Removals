@@ -38,7 +38,7 @@ function Card({ item, v, idx }: { item: Item; v: Variant; idx: number }) {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <span className="absolute right-8 top-8 font-display text-7xl font-light italic text-ivory/20">{num}</span>
         <div className="relative max-w-md">
-          <span className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/40 bg-ink/40 text-ivory backdrop-blur-md transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-7 w-7" accentColor="#D8C29B" /></span>
+          <span className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/40 bg-ink/40 text-ivory backdrop-blur-md transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-7 w-7" accentColor="#E2CFA8" /></span>
           <h3 className="mt-6 font-display text-4xl font-light sm:text-5xl">{item.title}</h3>
           <p className="mt-4 text-ivory/75">{item.text}</p>
           <div className="mt-7"><More light /></div>
@@ -52,7 +52,7 @@ function Card({ item, v, idx }: { item: Item; v: Variant; idx: number }) {
           <Image src={item.img.src} alt={item.img.alt} fill sizes="(min-width:1024px) 20vw, 100vw" className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110" />
         </div>
         <div className="flex flex-col p-7">
-          <div className="flex items-center justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink text-ivory shadow-card transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-6 w-6" accentColor="#D8C29B" /></span><span className="font-display text-2xl italic text-ink/20 transition-colors group-hover:text-gold">{num}</span></div>
+          <div className="flex items-center justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink text-ivory shadow-card transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-6 w-6" accentColor="#E2CFA8" /></span><span className="font-display text-2xl italic text-ink/20 transition-colors group-hover:text-gold">{num}</span></div>
           <h3 className="mt-5 font-display text-[1.7rem] font-light leading-tight">{item.title}</h3>
           <p className="mt-3 flex-1 text-[0.92rem] leading-relaxed text-ink/65">{item.text}</p>
           <div className="mt-6"><More /></div>
@@ -76,7 +76,7 @@ function Card({ item, v, idx }: { item: Item; v: Variant; idx: number }) {
   return (
     <Link href={item.href} className="group relative grid overflow-hidden rounded-[32px] bg-ink text-ivory md:grid-cols-[1.2fr_1fr]">
       <div className="relative z-10 flex flex-col justify-center gap-5 p-8 sm:p-12">
-        <span className="flex items-center gap-4"><span className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/40 text-ivory transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-7 w-7" accentColor="#D8C29B" /></span><span className="font-display text-sm italic text-gold-light">{num}</span></span>
+        <span className="flex items-center gap-4"><span className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/40 text-ivory transition-transform duration-500 group-hover:-rotate-6"><AnimatedIcon name={item.icon} className="h-7 w-7" accentColor="#E2CFA8" /></span><span className="font-display text-sm italic text-gold-light">{num}</span></span>
         <h3 className="font-display text-4xl font-light">{item.title}</h3>
         <p className="max-w-lg text-ivory/70">{item.text}</p>
         <More light />
@@ -103,7 +103,7 @@ export default function ServicesSection() {
         </div>
         <ul className="mt-16 grid gap-5 lg:grid-cols-12">
           {services.items.map((item, i) => (
-            <Reveal as="li" key={item.href} delay={(i % 3) * 0.08} className={layout[i].cls}>
+            <Reveal as="li" key={item.title} delay={(i % 3) * 0.08} className={layout[i].cls}>
               <Card item={item} v={layout[i].v} idx={i} />
             </Reveal>
           ))}

@@ -6,20 +6,22 @@ const config: Config = {
     container: { center: true, padding: { DEFAULT: "1.25rem", md: "2rem", xl: "2.5rem" } },
     extend: {
       colors: {
-        ink: { DEFAULT: "#0E1626", 800: "#152036", 700: "#1E2B45", 500: "#4A5568" },
-        ivory: { DEFAULT: "#F6F1E8", 50: "#FBF8F3", 100: "#F6F1E8", 200: "#ECE4D6" },
-        gold: { DEFAULT: "#B08D57", light: "#D8C29B", deep: "#8C6D3D" },
-        stone: { DEFAULT: "#8B8F97", line: "#E3DACB" },
+        ink: { DEFAULT: "#0F2340", 800: "#13294A", 700: "#1B3458", 500: "#4B5B73" },
+        ivory: { DEFAULT: "#F5F1EA", 50: "#FAF8F4", 100: "#F5F1EA", 200: "#E9E3D8" },
+        gold: { DEFAULT: "#C4A574", light: "#E2CFA8", deep: "#97794A" },
+        stone: { DEFAULT: "#8B8F97", line: "#E6E0D4" },
+        sea: { DEFAULT: "#A8D5C5", light: "#D4EBE2", deep: "#5E9C88", sage: "#7E9E8F" },
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        logo: ["var(--font-logo)", "Georgia", "serif"],
       },
       letterSpacing: { eyebrow: "0.28em" },
       borderRadius: { arch: "999px 999px 28px 28px" },
       boxShadow: {
-        soft: "0 30px 60px -30px rgba(14,22,38,0.35)",
-        card: "0 1px 0 rgba(14,22,38,0.04), 0 20px 40px -24px rgba(14,22,38,0.25)",
+        soft: "0 30px 60px -30px rgba(15,35,64,0.35)",
+        card: "0 1px 0 rgba(15,35,64,0.04), 0 20px 40px -24px rgba(15,35,64,0.25)",
       },
       keyframes: {
         drive: { "0%": { offsetDistance: "0%" }, "100%": { offsetDistance: "100%" } },

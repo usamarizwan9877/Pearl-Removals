@@ -7,7 +7,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 /*
  * Boxes drop one by one and stack into place: each falls, squashes on landing,
  * kicks up a little dust, and casts a shadow that grows as it nears the ground.
- * The Royals crown box lands last and catches the light.
+ * The Pearl box (navy, seafoam band, pearl emblem) lands last and catches the light.
  */
 
 const GROUND = 300;
@@ -24,7 +24,7 @@ type Box = { x: number; y: number; w: number; h: number; mark?: "fragile" | "up"
  */
 const ROW1 = GROUND - 80;            // bottom row: h 80
 const ROW2 = ROW1 - DY / 2 - 70;     // middle row: h 70
-const ROW3 = ROW2 - DY / 2 - 64;     // crown box:  h 64
+const ROW3 = ROW2 - DY / 2 - 64;     // pearl box:  h 64
 const boxes: Box[] = [
   { x: 20, y: ROW1, w: 118, h: 80, mark: "label", handle: true },
   { x: 160, y: ROW1, w: 118, h: 80, mark: "fragile", handle: true },
@@ -66,8 +66,8 @@ const dust: Variants = {
   show: (i: number) => ({ opacity: [0, 0.55, 0], scale: [0.2, 1, 1.5], transition: { duration: 0.7, delay: landOf(i), ease: "easeOut" } }),
 };
 
-const C = { front: "#D9C3A0", top: "#E8D7B8", side: "#C3A77C", line: "#0E1626", tape: "#EFE3CC", tapeTop: "#F6EEDD" };
-const R = { front: "#0E1626", top: "#1E2B45", side: "#070C16", ribbon: "#B08D57", ribbonTop: "#C9A56B" };
+const C = { front: "#D9C3A0", top: "#E8D7B8", side: "#C3A77C", line: "#0F2340", tape: "#EFE3CC", tapeTop: "#F6EEDD" };
+const R = { front: "#0F2340", top: "#1B3458", side: "#08172C", ribbon: "#A8D5C5", ribbonTop: "#C4A574" };
 
 function BoxShape({ b, i }: { b: Box; i: number }) {
   const { x, y, w, h } = b;
@@ -98,13 +98,13 @@ function BoxShape({ b, i }: { b: Box; i: number }) {
       {/* markings */}
       {b.mark === "label" && (
         <g>
-          <rect x={x + 12} y={y + h - 30} width="34" height="20" rx="1.5" fill="#FBF8F3" stroke={C.line} strokeOpacity=".3" strokeWidth=".8" />
+          <rect x={x + 12} y={y + h - 30} width="34" height="20" rx="1.5" fill="#FAF8F4" stroke={C.line} strokeOpacity=".3" strokeWidth=".8" />
           <path d={`M${x + 16} ${y + h - 24} h22 M${x + 16} ${y + h - 19} h16 M${x + 16} ${y + h - 14} h19`} stroke={C.line} strokeOpacity=".35" strokeWidth=".9" />
         </g>
       )}
       {b.mark === "fragile" && (
         // wine-glass "fragile" symbol
-        <g stroke="#8C6D3D" strokeWidth="1.3" fill="none" strokeLinecap="round" transform={`translate(${x + 24} ${y + h - 34})`}>
+        <g stroke="#97794A" strokeWidth="1.3" fill="none" strokeLinecap="round" transform={`translate(${x + 24} ${y + h - 34})`}>
           <path d="M-6 0 h12 l-1.5 8 a4.5 4.5 0 0 1 -9 0 z" />
           <path d="M0 12.5 V20 M-4.5 20 h9" />
           <path d="M1.5 1 l-2.5 3.5 2 1.5 -2 3" strokeWidth="1" />
@@ -112,21 +112,21 @@ function BoxShape({ b, i }: { b: Box; i: number }) {
       )}
       {b.mark === "up" && (
         // "this way up" arrows
-        <g stroke="#8C6D3D" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" transform={`translate(${x + w - 28} ${y + h - 14})`}>
+        <g stroke="#97794A" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" transform={`translate(${x + w - 28} ${y + h - 14})`}>
           <path d="M-5 0 V-15 M-9 -11 l4 -4 4 4" />
           <path d="M5 0 V-15 M1 -11 l4 -4 4 4" />
           <path d="M-10 3 h20" />
         </g>
       )}
 
-      {/* the Royals crown box */}
+      {/* the Pearl box emblem: pearl on gold waves */}
       {b.royal && (
         <g transform={`translate(${mid} ${y + h / 2})`}>
           <circle r="17" fill={R.front} stroke={R.ribbonTop} strokeWidth="1.2" />
-          <path d="M-9 5 L-11 -6 L-4.5 -1 L0 -9 L4.5 -1 L11 -6 L9 5 Z" fill="#D8C29B" stroke="#D8C29B" strokeWidth="1" strokeLinejoin="round" />
-          <circle cx="0" cy="-9" r="1.4" fill="#D8C29B" />
-          <circle cx="-11" cy="-6" r="1.2" fill="#D8C29B" />
-          <circle cx="11" cy="-6" r="1.2" fill="#D8C29B" />
+          <circle cx="1" cy="-4" r="6.5" fill="#F1ECE3" />
+          <circle cx="-1" cy="-6" r="2" fill="#fff" />
+          <path d="M-11 5c4 2.4 9 2.4 13-.3s8-2.4 9-1.2c-2 3-7 4.4-12 4s-8-1.2-10-2.5Z" fill="#C4A574" />
+          <path d="M-9 9c3.5 1.6 7.5 1.6 11-.3s6.5-1.6 7.5-.8c-2 2.2-6 3-10 2.7s-6.5-.6-8.5-1.6Z" fill="#E2CFA8" />
         </g>
       )}
     </motion.g>
@@ -138,7 +138,7 @@ export default function IncludedSection() {
   const royalLanded = landOf(5);
 
   return (
-    <section id="whats-included" aria-labelledby="included-title" className="relative overflow-hidden bg-[#EFE6D5] py-24 sm:py-32">
+    <section id="whats-included" aria-labelledby="included-title" className="relative overflow-hidden bg-[#EAF3EF] py-24 sm:py-32">
       <div className="container grid max-w-[1400px] items-center gap-16 lg:grid-cols-2">
         <div>
           <Reveal><SectionTitle id="included-title" title={included.title} className="text-ink" /></Reveal>
@@ -156,27 +156,27 @@ export default function IncludedSection() {
           </defs>
 
           {/* floor */}
-          <motion.ellipse cx="228" cy={GROUND + 6} rx="222" ry="10" fill="#0E1626" fillOpacity=".05"
+          <motion.ellipse cx="228" cy={GROUND + 6} rx="222" ry="10" fill="#0F2340" fillOpacity=".05"
             variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.8 } } }} />
-          <motion.line x1="4" y1={GROUND} x2="446" y2={GROUND} stroke="#0E1626" strokeOpacity=".25"
+          <motion.line x1="4" y1={GROUND} x2="446" y2={GROUND} stroke="#0F2340" strokeOpacity=".25"
             variants={{ hidden: { pathLength: 0 }, show: { pathLength: 1, transition: { duration: 1 } } }} />
 
           {boxes.map((b, i) => (
             <g key={i}>
               {/* shadow on whatever the box lands on */}
               <motion.ellipse custom={i} variants={shadow} cx={b.x + b.w / 2 + DX / 2} cy={b.y + b.h} rx={b.w / 2 + 4} ry="4"
-                fill="#0E1626" fillOpacity=".16" style={{ originX: 0.5, originY: 0.5 }} />
+                fill="#0F2340" fillOpacity=".16" style={{ originX: 0.5, originY: 0.5 }} />
               <motion.g custom={i} variants={fall}>
                 <BoxShape b={b} i={i} />
               </motion.g>
               {/* dust puffs at both corners on landing */}
               {[b.x - 2, b.x + b.w + 6].map((cx, k) => (
-                <motion.circle key={k} custom={i} variants={dust} cx={cx} cy={b.y + b.h - 3} r="7" fill="#FBF8F3" style={{ originX: 0.5, originY: 0.5 }} />
+                <motion.circle key={k} custom={i} variants={dust} cx={cx} cy={b.y + b.h - 3} r="7" fill="#FAF8F4" style={{ originX: 0.5, originY: 0.5 }} />
               ))}
             </g>
           ))}
 
-          {/* light sweeping across the crown box, then sparkles */}
+          {/* light sweeping across the pearl box, then sparkles */}
           <g clipPath="url(#royal-front)"><g transform="skewX(-18)">
             <motion.rect y={royal.y - 10} width="46" height={royal.h + 20} fill="url(#shine)"
               variants={{
@@ -190,7 +190,7 @@ export default function IncludedSection() {
             { cx: royal.x + royal.w / 2 + 8, cy: royal.y - 30, s: 0.55 },
           ].map((p, k) => (
             <motion.path key={k} d={`M${p.cx} ${p.cy - 8 * p.s} L${p.cx + 2 * p.s} ${p.cy - 2 * p.s} L${p.cx + 8 * p.s} ${p.cy} L${p.cx + 2 * p.s} ${p.cy + 2 * p.s} L${p.cx} ${p.cy + 8 * p.s} L${p.cx - 2 * p.s} ${p.cy + 2 * p.s} L${p.cx - 8 * p.s} ${p.cy} L${p.cx - 2 * p.s} ${p.cy - 2 * p.s} Z`}
-              fill="#B08D57" style={{ originX: 0.5, originY: 0.5 }}
+              fill="#C4A574" style={{ originX: 0.5, originY: 0.5 }}
               variants={{
                 hidden: { opacity: 0, scale: 0 },
                 show: { opacity: [0, 1, 0], scale: [0, 1, 0], transition: { duration: 1.4, delay: royalLanded + 0.3 + k * 0.35, repeat: Infinity, repeatDelay: 2.4 } },

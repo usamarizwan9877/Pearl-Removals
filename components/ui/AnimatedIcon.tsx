@@ -76,6 +76,10 @@ const ICONS = {
     lines: ["M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 18V6A1.5 1.5 0 0 1 5 4.5Z"],
     accent: [{ d: "M10 16V8h3a2.5 2.5 0 0 1 0 5h-3" }], anim: "pulse",
   },
+  pearl: {
+    lines: ["M2.5 17c3 2 7 2 10 0s7-2 9-.5", "M4 20.5c3 1.4 6 1.4 9 0s5.5-1.4 7.5-.4"],
+    accent: [{ d: "M8 10.5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 1 0-9 0", fill: true }], anim: "float",
+  },
   star: {
     lines: ["M12 3l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L12 16.3l-5.4 2.9 1.2-5.9L3.4 9.2l6-.7Z"],
     accent: [{ d: "M12 8.2l1.2 2.5 2.7.3-2 1.9.5 2.7L12 14.3l-2.4 1.3.5-2.7-2-1.9 2.7-.3Z", fill: true }], anim: "spin",
@@ -93,7 +97,7 @@ const ICONS = {
 export type AnimatedIconName = keyof typeof ICONS;
 
 export default function AnimatedIcon({
-  name, className = "h-6 w-6", delay = 0, accentColor = "#B08D57", strokeWidth = 1.5,
+  name, className = "h-6 w-6", delay = 0, accentColor = "#C4A574", strokeWidth = 1.5,
 }: { name: string; className?: string; delay?: number; accentColor?: string; strokeWidth?: number }) {
   const def: Def = (ICONS as Record<string, Def>)[name] ?? ICONS.package;
   return (

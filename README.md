@@ -1,37 +1,28 @@
-# The Royals Removals — Homepage redesign
+# Pearl Removals — website
 
-Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS 3 · Framer Motion 12 · Lucide.
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS 3 · Framer Motion 12.
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # production build
 ```
-Deploy: push to GitHub → import in Vercel (zero config).
 
-Preview on GitHub Pages: every push to `main` runs `.github/workflows/deploy-pages.yml`, which builds a
-static export (`GITHUB_PAGES=true`) and publishes it to `https://<user>.github.io/royals-removals/`.
-One-time setup: repo **Settings → Pages → Source: GitHub Actions**. Optional secret `GOOGLE_PLACES_API_KEY`
-shows live Google review cards (fetched at build time).
+## Brand
+- Palette: midnight navy `#0F2340` · pearl white `#F5F1EA / #FAF8F4` · seafoam `#A8D5C5 / #D4EBE2` · champagne gold `#C4A574`.
+- Type: Libre Caslon Text (headings) · Cinzel (logo wordmark) · Jost (body).
+- Logo: pearl-and-wave mark in `components/ui/Logo.tsx` (`PearlMark` + wordmark). Favicon: `app/icon.svg`.
+- Tagline: *Move well. Arrive happy.*
 
-## Structure
-```
-app/            layout (fonts, metadata, JSON-LD), page, error, 404
-content/site.ts single source of truth — all original homepage copy, links, contacts
-components/
-  layout/       Header, DesktopNavigation, MobileNavigation, Footer
-  sections/     Hero, TrustBar, Services, About, WhyChooseUs, Process, Included,
-                Insurance, Areas, Reviews, Logistics, FAQ, FinalCTA
-  ui/           Reveal, SectionHeader/Title, CallbackForm, Trustpilot, RouteJourney, icons
-docs/CONTENT-MAP.md  audit of the live homepage + items to confirm
-```
+## Content
+All copy lives in `content/site.ts`. **`contact` holds placeholders** — replace with the real phone, email,
+address and hours before launch. Images in `public/images/` are cropped from the client's brand mockups.
 
-## Design notes
-- Palette: ink navy `#0E1626`, ivory `#F6F1E8/#FBF8F3`, champagne `#EFE6D5`, royal gold `#B08D57`.
-- Type: Fraunces (display, italic gold for the original highlighted words) + Manrope (body), self-hosted via `next/font`.
-- Motif: the palace-window **arch** for images, and a gold **route** from home to home with a van driving it (hero, process, final CTA).
-- Motion: scroll reveals, parallax, scroll-driven van in "How It Works", stacking boxes, self-drawing shields, animated nav/accordion. All respects `prefers-reduced-motion`.
+## Quote form
+`components/ui/QuoteForm.tsx` posts to Web3Forms when `NEXT_PUBLIC_WEB3FORMS_KEY` is set (Pearl Removals'
+own key). Without it the form is a clearly-labelled preview and sends nothing.
 
-## Images
-Images load from `https://www.theroyalsremovals.co.uk/images/…` through `next/image` (see `next.config.mjs`).
-When this replaces the live site, copy `/images` into `public/images/` and change `IMG` in `content/site.ts` to `"/images"`.
+## Preview on GitHub Pages
+Every push to `main` runs `.github/workflows/deploy-pages.yml` and publishes a static export to
+`https://<user>.github.io/Pearl-Removals/`. Add `NEXT_PUBLIC_WEB3FORMS_KEY` as a repository secret and
+pass it in the workflow's build `env` to connect the form there.

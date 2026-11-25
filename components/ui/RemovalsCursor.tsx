@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring, useTransform, type 
 
 /*
  * Removals-themed cursor follower (desktop / mouse only).
- *  - A navy badge carrying a detailed Royals removal van trails the pointer on
+ *  - A navy badge carrying a detailed Pearl removal van trails the pointer on
  *    a spring. The van faces the direction of travel, its wheels spin with the
  *    distance moved, and speed lines stream out behind it while moving.
  *  - A short comet trail of gold dots follows at increasing lag.
@@ -28,19 +28,22 @@ function Van({ flip, spin, moving }: { flip: boolean; spin: MotionValue<number>;
       </span>
       <svg viewBox="0 0 44 28" className="block h-[22px] w-[35px]" aria-hidden>
         {/* box body */}
-        <rect x="1" y="2" width="27" height="18" rx="2.5" fill="#F6F1E8" />
-        <rect x="1" y="15.5" width="41.5" height="2" fill="#B08D57" />
-        <path d="M10.4 12.5 9.2 6.8l3 2.1 2.1-3.6 2.1 3.6 3-2.1-1.2 5.7Z" fill="#B08D57" />
+        <rect x="1" y="2" width="27" height="18" rx="2.5" fill="#FAF8F4" />
+        <path d="M1 13c8-3 16 2 27-1.5V18a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2Z" fill="#1B3458" />
+        <path d="M1 11.6c8-3 16 2 27-1.5v1.6c-11 3.5-19-1.5-27 1.5Z" fill="#A8D5C5" />
+        <circle cx="8" cy="7" r="3" fill="#EFE9DF" stroke="#C4A574" strokeWidth=".5" />
+        <circle cx="7.2" cy="6.2" r=".9" fill="#fff" />
+        <rect x="13" y="5.6" width="11" height="1.4" rx=".7" fill="#0F2340" />
         {/* cab */}
-        <path d="M28 7h7.2a2.2 2.2 0 0 1 1.8.9l5 6.8V20H28Z" fill="#D8C29B" />
-        <path d="M30.5 9.2h4.4l3.5 4.9h-7.9Z" fill="#0E1626" />
+        <path d="M28 7h7.2a2.2 2.2 0 0 1 1.8.9l5 6.8V20H28Z" fill="#FAF8F4" />
+        <path d="M30.5 9.2h4.4l3.5 4.9h-7.9Z" fill="#0F2340" />
         <rect x="40" y="16.8" width="2.6" height="1.8" rx=".6" fill="#FFF4D6" />
         {/* wheels */}
         {[9, 34].map((cx) => (
           <g key={cx} transform={`translate(${cx} 22)`}>
-            <circle r="4.2" fill="#0E1626" stroke="#F6F1E8" strokeWidth="1.4" />
+            <circle r="4.2" fill="#0F2340" stroke="#F5F1EA" strokeWidth="1.4" />
             <motion.g style={{ rotate: spin }}>
-              <path d="M-2.2 0h4.4M0-2.2v4.4" stroke="#B08D57" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M-2.2 0h4.4M0-2.2v4.4" stroke="#C4A574" strokeWidth="1.2" strokeLinecap="round" />
             </motion.g>
           </g>
         ))}
@@ -52,12 +55,12 @@ function Van({ flip, spin, moving }: { flip: boolean; spin: MotionValue<number>;
 function House() {
   return (
     <svg viewBox="0 0 32 32" className="h-8 w-8" fill="none" aria-hidden>
-      <path d="M4 15 16 5l12 10" stroke="#0E1626" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M22 8.5V5.5h3v5.6" stroke="#0E1626" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M7.5 12.5V27h17V12.5" fill="#FBF8F3" stroke="#0E1626" strokeWidth="2.2" strokeLinejoin="round" />
+      <path d="M4 15 16 5l12 10" stroke="#0F2340" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M22 8.5V5.5h3v5.6" stroke="#0F2340" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M7.5 12.5V27h17V12.5" fill="#FAF8F4" stroke="#0F2340" strokeWidth="2.2" strokeLinejoin="round" />
       <path className="cursor-door" d="M13 27v-6a3 3 0 0 1 6 0v6Z" fill="#FFD98A" />
-      <rect x="10" y="14.5" width="3.6" height="3.6" rx=".6" fill="#0E1626" />
-      <rect x="18.4" y="14.5" width="3.6" height="3.6" rx=".6" fill="#0E1626" />
+      <rect x="10" y="14.5" width="3.6" height="3.6" rx=".6" fill="#0F2340" />
+      <rect x="18.4" y="14.5" width="3.6" height="3.6" rx=".6" fill="#0F2340" />
     </svg>
   );
 }
@@ -153,14 +156,14 @@ export default function RemovalsCursor() {
           )}
         </AnimatePresence>
         <motion.div
-          className="grid place-items-center rounded-full border-2 shadow-[0_10px_30px_-8px_rgba(14,22,38,.55)]"
+          className="grid place-items-center rounded-full border-2 shadow-[0_10px_30px_-8px_rgba(15,35,64,.55)]"
           style={{ translateX: "-50%", translateY: "-50%" }}
           animate={{
             width: size, height: size,
             opacity: visible ? 1 : 0,
             scale: pressed ? 0.82 : 1,
-            backgroundColor: hovering ? "#D8C29B" : "#0E1626",
-            borderColor: hovering ? "#FBF8F3" : "#B08D57",
+            backgroundColor: hovering ? "#E2CFA8" : "#0F2340",
+            borderColor: hovering ? "#FAF8F4" : "#C4A574",
           }}
           transition={{ type: "spring", stiffness: 380, damping: 24 }}
         >

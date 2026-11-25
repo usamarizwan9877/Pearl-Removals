@@ -15,12 +15,12 @@ export const InstagramIcon = ({ className = "h-4 w-4" }: P) => (
 /** Fine line-art removal van used across the route animations. */
 export const VanGlyph = ({ className = "h-6 w-10" }: P) => (
   <svg viewBox="0 0 64 36" className={className} fill="none" aria-hidden>
-    <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H38v23H3V6.5Z" fill="#0E1626" />
-    <path d="M38 11h12.6a3 3 0 0 1 2.5 1.35L59 21v6H38V11Z" fill="#152036" />
-    <path d="M42 14h8l4 6h-12v-6Z" fill="#D8C29B" opacity=".9" />
-    <path d="M8 12h24" stroke="#B08D57" strokeWidth="1.2" />
-    <path d="M14 17.5l2-3 2 3 2-3 2 3" stroke="#B08D57" strokeWidth="1" />
-    <circle cx="14" cy="28" r="4.5" fill="#0E1626" stroke="#F6F1E8" strokeWidth="1.6" />
-    <circle cx="49" cy="28" r="4.5" fill="#0E1626" stroke="#F6F1E8" strokeWidth="1.6" />
+    <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H38v23H3V6.5Z" fill="#0F2340" />
+    <path d="M38 11h12.6a3 3 0 0 1 2.5 1.35L59 21v6H38V11Z" fill="#13294A" />
+    <path d="M42 14h8l4 6h-12v-6Z" fill="#E2CFA8" opacity=".9" />
+    <path d="M8 12h24" stroke="#C4A574" strokeWidth="1.2" />
+    <path d="M14 17.5l2-3 2 3 2-3 2 3" stroke="#C4A574" strokeWidth="1" />
+    <circle cx="14" cy="28" r="4.5" fill="#0F2340" stroke="#F5F1EA" strokeWidth="1.6" />
+    <circle cx="49" cy="28" r="4.5" fill="#0F2340" stroke="#F5F1EA" strokeWidth="1.6" />
   </svg>
 );

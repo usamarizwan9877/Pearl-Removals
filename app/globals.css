@@ -5,18 +5,20 @@
 @layer base {
   html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
   body { @apply bg-ivory-50 font-sans text-ink antialiased; overflow-x: hidden; }
-  ::selection { background: #D8C29B; color: #0E1626; }
-  :focus-visible { outline: 2px solid #B08D57; outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: #E2CFA8; color: #0F2340; }
+  :focus-visible { outline: 2px solid #C4A574; outline-offset: 3px; border-radius: 6px; }
 }
 
 @layer components {
-  .eyebrow { @apply inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-eyebrow text-gold-deep; }
+  .eyebrow { @apply inline-flex items-center gap-3 text-[0.72rem] font-medium uppercase tracking-eyebrow text-gold-deep; }
   .eyebrow::before { content: ""; @apply h-px w-8 bg-gold; }
   .eyebrow-light { @apply text-gold-light; }
-  .h-section { @apply font-display text-[2.35rem] font-light leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-[3.6rem]; }
-  .gold-word { @apply italic text-gold; font-variation-settings: "SOFT" 100, "WONK" 1; }
-  .btn { @apply relative inline-flex min-h-[52px] items-center justify-center gap-2.5 overflow-hidden rounded-full px-7 text-[0.95rem] font-semibold transition-all duration-300; }
+  .h-section { @apply font-display text-[2.3rem] font-normal leading-[1.08] tracking-[-0.01em] sm:text-5xl lg:text-[3.4rem]; }
+  .gold-word { @apply italic text-gold-deep; }
+  .btn { @apply relative inline-flex min-h-[52px] items-center justify-center gap-3 overflow-hidden rounded-[6px] px-7 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300; }
   .btn-gold { @apply btn bg-gold text-ink hover:bg-gold-light; }
+  .btn-sea { @apply btn bg-sea text-ink hover:bg-sea-light; }
+  .btn-sage { @apply btn bg-sea-sage text-ivory-50 hover:bg-sea-deep; }
   .btn-ink { @apply btn bg-ink text-ivory hover:bg-ink-700; }
   .btn-ghost { @apply btn border border-ink/15 text-ink hover:border-ink hover:bg-ink hover:text-ivory; }
   .btn-ghost-light { @apply btn border border-ivory/25 text-ivory hover:border-ivory hover:bg-ivory hover:text-ink; }
@@ -40,7 +42,7 @@
 
 /* Button effects (see components/ui/ButtonFX.tsx) */
 .btn { transform: translate(var(--tx, 0px), var(--ty, 0px)); transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background-color .3s, color .3s, border-color .3s; }
-.btn:hover { box-shadow: 0 16px 32px -16px rgba(14,22,38,.55); }
+.btn:hover { box-shadow: 0 16px 32px -16px rgba(15,35,64,.55); }
 .btn:active { transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(.96); transition-duration: .12s; }
 .btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
   mix-blend-mode: soft-light; background: radial-gradient(110px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.9), transparent 65%); }
@@ -49,15 +51,15 @@
 .btn:hover > svg:last-child { transform: translateX(3px); }
 .btn-ripple { position: absolute; border-radius: 9999px; pointer-events: none; background: radial-gradient(circle, rgba(255,255,255,.5), rgba(255,255,255,0) 70%); transform: scale(0); animation: btn-ripple .65s ease-out forwards; }
 @keyframes btn-ripple { to { transform: scale(1); opacity: 0; } }
-.btn-gold { animation: btn-glow 3.2s ease-in-out infinite; }
-@keyframes btn-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(176,141,87,0); } 50% { box-shadow: 0 0 0 6px rgba(176,141,87,.18); } }
-.btn-gold:hover { animation: none; }
+.btn-sea { animation: btn-glow 3.2s ease-in-out infinite; }
+@keyframes btn-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(168,213,197,0); } 50% { box-shadow: 0 0 0 6px rgba(168,213,197,.35); } }
+.btn-sea:hover { animation: none; }
 
 /* Footer signature */
-.footer-wordmark { background: linear-gradient(100deg, #8C6D3D 0%, #D8C29B 30%, #F6EAD0 45%, #D8C29B 60%, #B08D57 80%, #8C6D3D 100%); background-size: 220% 100%;
+.footer-wordmark { background: linear-gradient(100deg, #97794A 0%, #E2CFA8 30%, #F6EAD0 45%, #E2CFA8 60%, #C4A574 80%, #97794A 100%); background-size: 220% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent; animation: wordmark 9s ease-in-out infinite; }
 @keyframes wordmark { 0%, 100% { background-position: 0% 0; } 50% { background-position: 100% 0; } }
-.footer-crown { animation: crown-bob 4s ease-in-out infinite; filter: drop-shadow(0 6px 14px rgba(176,141,87,.35)); }
+.footer-crown { animation: crown-bob 4s ease-in-out infinite; filter: drop-shadow(0 6px 14px rgba(196,165,116,.35)); }
 @keyframes crown-bob { 50% { transform: translateY(-4px); } }
 
 /* Hero */

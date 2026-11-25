@@ -1,351 +1,238 @@
 /**
  * ─────────────────────────────────────────────────────────────
- *  SINGLE SOURCE OF TRUTH — copy extracted verbatim from
- *  https://www.theroyalsremovals.co.uk/ (homepage, 24 Nov 2026).
- *  Do not reword. Headings are split into { pre, gold, post }
- *  only to reproduce the original gold-highlighted words.
+ *  SINGLE SOURCE OF TRUTH — Pearl Removals homepage copy.
+ *  Brand: midnight navy · pearl white · seafoam · champagne gold.
+ *  Tagline: "Move well. Arrive happy."
+ *
+ *  ⚠ PLACEHOLDERS: every value in `contact` (and anything marked
+ *  TODO) must be replaced with Pearl Removals' real details
+ *  before the site goes live.
  * ─────────────────────────────────────────────────────────────
  */
+import heroRoom from "@/public/images/hero-room.jpg";
+import roomBoxes from "@/public/images/room-boxes.jpg";
+import packingBox from "@/public/images/packing-box.jpg";
+import lutonVan from "@/public/images/luton-van.jpg";
+import lutonVanRear from "@/public/images/luton-van-rear.jpg";
+import panelVan from "@/public/images/panel-van.jpg";
+import brandKit from "@/public/images/brand-kit.jpg";
+import businessCards from "@/public/images/business-cards.jpg";
 
 export type Title = { pre?: string; gold: string; post?: string; breakBeforeGold?: boolean };
 export type Link = { label: string; href: string };
 
-const IMG = "https://www.theroyalsremovals.co.uk/images";
+export const brand = { name: "Pearl Removals", tagline: "Move well. Arrive happy." };
 
+/* TODO: replace with Pearl Removals' real contact details */
 export const contact = {
-  phoneDisplay: "07345 624506",
-  phoneHref: "tel:+447345624506",
-  whatsappHref: "https://wa.me/447345624506",
-  email: "theroyalsremovals@gmail.com",
-  address: "22 Whitehall Rd, Small Heath, Birmingham B9 5EJ, United Kingdom",
-  hours: "Open 24 Hours",
-  facebook: "https://www.facebook.com/theroyalsremovals",
-  instagram: "https://www.instagram.com/theroyalsremovals",
-  googleReviews: "https://maps.app.goo.gl/kka4CMmj98foBFqT8?g_st=iw",
+  phoneDisplay: "[Phone number]",
+  phoneHref: "/#quote",
+  whatsappHref: "/#quote",
+  email: "[Email address]",
+  address: "[Business address]",
+  hours: "[Opening hours]",
+  facebook: "/#",
+  instagram: "/#",
 };
 
 export const seo = {
-  title: "Professional Removal Services in West Midlands & Birmingham",
+  title: "Pearl Removals | Move well. Arrive happy.",
   description:
-    "Professional, fully insured removal services across the West Midlands & Birmingham. Stress-free moves with careful handling and transparent pricing.",
-  url: "https://theroyalsremovals.co.uk",
+    "Calm, careful home removals, business moves and packing support from Pearl Removals. Plan your move and get a tailored quote.",
+  url: "https://usamarizwan9877.github.io/Pearl-Removals", // TODO: real domain
 };
 
-export const logo = { src: `${IMG}/logo_trimmed.png`, alt: "The Royals Removals" };
-
-/* ── Navigation (exact hierarchy + URLs) ─────────────────── */
-export type NavItem = Link & { children?: Link[] };
+/* ── Navigation (single-page anchors) ────────────────────── */
+export type NavItem = Link & { children?: (Link & { icon: string })[] };
 export const navigation: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services/" },
-  { label: "Areas We Serve", href: "/areas/" },
   {
-    label: "About",
-    href: "/about/",
+    label: "Our Services",
+    href: "/#services",
     children: [
-      { label: "Prices", href: "/prices/" },
-      { label: "Reviews", href: "/reviews/" },
-      { label: "Insurance", href: "/insurance/" },
-      { label: "Blog", href: "/blog/" },
+      { label: "Home Removals", href: "/#services", icon: "home" },
+      { label: "Business Moves", href: "/#services", icon: "building" },
+      { label: "Packing Support", href: "/#services", icon: "package" },
+      { label: "Get a Quote", href: "/#quote", icon: "receipt" },
     ],
   },
-  { label: "Contact", href: "/contact/" },
+  { label: "Moving Guide", href: "/#process" },
+  { label: "About Us", href: "/#about" },
+  { label: "Contact", href: "/#quote" },
 ];
-export const headerCta: Link = { label: "Get Free Quote", href: "/get-a-quote/" };
+export const headerCta: Link = { label: "Plan Your Move", href: "/#quote" };
 
 /* ── Hero ────────────────────────────────────────────────── */
 export const hero = {
-  eyebrow: "We Move It Like Royalty",
-  h1: { line1: "Professional", highlight: "Removal Services", line3: "in West Midlands & Birmingham" },
-  body:
-    "From your first box to the last piece of furniture — as trusted movers across the West Midlands, The Royals Removals delivers a stress-free, carefully handled move you can rely on. Your dedicated regional moving company for meticulous and professional care.",
-  points: [
-    "Fully insured & vetted professional team",
-    "Free no-obligation quotes in minutes",
-    "Same-day response & flexible move dates",
-    "Careful handling & damage protection guarantee",
+  eyebrow: "Move well. Arrive happy.",
+  lines: ["A new chapter", "starts with a", "smooth move."],
+  body: "From the first box to the final room, Pearl Removals plans and handles your move with quiet care — so you can look forward to what comes next.",
+  cta: { label: "Plan Your Move", href: "/#quote" },
+  secondary: { label: "Our Services", href: "/#services" },
+  image: { src: heroRoom, alt: "Bright living room with Pearl Removals boxes ready for moving day" },
+  strip: [
+    { title: "Home Removals", icon: "home", href: "/#services" },
+    { title: "Business Moves", icon: "building", href: "/#services" },
+    { title: "Packing Support", icon: "package", href: "/#services" },
   ],
-  ctaQuote: { label: "Get a Quote", href: "/get-a-quote/" },
-  ctaWhatsApp: { label: "WhatsApp Us", href: "https://wa.me/447345624506" },
-  image: { src: `${IMG}/the-royals-removals-birmingham.webp`, alt: "The Royals Removals Birmingham" },
-  googleLabel: "Google Reviews",
-  googleRating: "5.0 Rating",
-};
-
-export const callback = {
-  title: "Request a Quick Call Back",
-  subtitle: "We'll get back to you within 15 minutes",
-  submit: "Get Started",
-  submitFinal: "Get Started →",
-  privacy: "Your information is secure & never shared",
-  fields: { name: "Your Name", email: "Email Address", phone: "Phone Number" },
-  /* Existing Web3Forms integration (public key already in the live page HTML) */
-  web3forms: {
-    endpoint: "https://api.web3forms.com/submit",
-    accessKey: "257bfd98-b90f-4f5b-ae99-f9566a6e35bb",
-    subject: "New Call Back Request - The Royals Removals Website",
-    fromName: "The Royals Removals Website", // ⚠ confirm against live hidden field value
-  },
 };
 
 export const trustBar = [
-  { title: "Local Movers", text: "Birmingham & West Midlands" },
-  { title: "Call or WhatsApp", text: "07345 624506", href: "tel:+447345624506" },
-  { title: "Fully Insured", text: "Comprehensive protection" },
-  { title: "Same-Day Response", text: "Quote within 15 mins" },
+  { title: "Careful Handling", text: "Wrapped, protected, placed" },
+  { title: "Clear Quotes", text: "Tailored to your move" },
+  { title: "Planned Properly", text: "A move plan you can trust" },
+  { title: "Friendly Team", text: "Uniformed & courteous" },
 ];
 
 /* ── Services ────────────────────────────────────────────── */
 export const services = {
-  eyebrow: "What We Offer",
-  title: { pre: "Our Premium ", gold: "Removal Services" } as Title,
-  intro:
-    "Whether you need a full house removal, a man-and-van for a quick job, or professional packing to keep your valuables safe, we have a service designed for your exact situation.",
-  cta: "Learn More",
-  viewAll: { label: "View All Services", href: "/services/" },
+  eyebrow: "Our Services",
+  title: { pre: "Moves made ", gold: "calm & simple" } as Title,
+  intro: "Whether it's your family home, your workplace or simply the packing, every Pearl move is planned around you and handled with the same quiet care.",
+  cta: "Get a Quote",
+  viewAll: { label: "Plan Your Move", href: "/#quote" },
   items: [
     {
-      title: "House Removals",
-      text: "Complete house removal service for all property sizes across Birmingham. Careful handling, furniture wrapping, and full transit protection included.",
-      href: "/services/house-removals-services/",
-      img: { src: `${IMG}/happy_family_moving.png`, alt: "House Removals Birmingham" },
+      title: "Home Removals",
+      text: "Flats, houses and family homes moved with care — furniture wrapped, rooms labelled and everything placed exactly where you want it.",
+      href: "/#quote",
+      img: { src: roomBoxes, alt: "Packed Pearl Removals boxes in a bright new home" },
       icon: "home",
     },
     {
-      title: "Furniture Removals",
-      text: "Single-item or full furniture moves, carefully wrapped and transported. Sofas, beds, wardrobes, and fragile pieces handled with precision and care.",
-      href: "/services/furniture-removals-services/",
-      img: { src: `${IMG}/the-royals-removals-birmingham15.webp`, alt: "Furniture Removals Birmingham" },
-      icon: "sofa",
-    },
-    {
-      title: "Office Relocation",
-      text: "Minimise downtime with our efficient and organised commercial moving service. IT equipment, furniture, and full office relocations handled expertly.",
-      href: "/services/office-relocation-services/",
-      img: { src: `${IMG}/office-relocation-van.jpg`, alt: "Office Relocation Birmingham" },
-      icon: "briefcase",
-    },
-    {
-      title: "Commercial Removals",
-      text: "Large-scale business moves for warehouses, retail units, and commercial premises. Project-managed relocations with minimal disruption to operations.",
-      href: "/services/commercial-removals-services/",
-      img: { src: `${IMG}/commercial-removals-van.jpg`, alt: "Commercial Removals Birmingham" },
+      title: "Business Moves",
+      text: "Office and commercial relocations planned around your working day, keeping disruption low and your team ready to work.",
+      href: "/#quote",
+      img: { src: panelVan, alt: "Pearl Removals branded van outside a modern office" },
       icon: "building",
     },
     {
-      title: "Packing Services",
-      text: "Professional packing team to safely wrap and box all your belongings using premium materials. Room-by-room, labelled, and ready for transit.",
-      href: "/services/packing-services/",
-      img: { src: `${IMG}/the-royals-removals-birmingham18.webp`, alt: "Packing Services Birmingham" },
+      title: "Packing Support",
+      text: "Professional packing with quality materials — room by room, clearly labelled and ready for the road.",
+      href: "/#quote",
+      img: { src: packingBox, alt: "Box sealed with Pearl Removals branded tape" },
       icon: "package",
     },
-    {
-      title: "Man and Van",
-      text: "Affordable, flexible man-and-van service for smaller moves, single items, and quick deliveries across Birmingham and the West Midlands.",
-      href: "/services/man-and-van-services/",
-      img: { src: `${IMG}/the-royals-removals-birmingham19.webp`, alt: "Man and Van Birmingham" },
-      icon: "truck",
-    },
-    {
-      title: "Equipment Removals",
-      text: "Specialist handling for heavy, oversized, and fragile equipment. Fish tanks, gym machines, industrial units, and more — moved safely and securely.",
-      href: "/services/equipment-removals-services/",
-      img: { src: `${IMG}/equipment-removals.jpg`, alt: "Equipment Removals Birmingham" },
-      icon: "dumbbell",
-    },
   ],
-} as const;
-
-/* ── Birmingham & West Midlands intro ────────────────────── */
-export const about = {
-  title: { pre: "Removals Services We Offer Across ", gold: "Birmingham & the West Midlands", breakBeforeGold: true } as Title,
-  body:
-    "At The Royals Removals, we provide professional removals services across Birmingham and the West Midlands for domestic and commercial customers looking for a reliable moving company they can trust. We handle house removals, flat moves, furniture removals, office relocations, commercial moves, packing services, and urgent same-day jobs with a focus on careful handling, secure transport, and clear communication throughout. Whether you are moving within Birmingham or to a nearby area in the West Midlands, our team offers flexible support tailored to your move, including packing help, dismantling and reassembly, and fully insured transport for extra peace of mind.",
-  cta: { label: "View Areas We Cover", href: "/areas/" },
-  img: { src: `${IMG}/the-royals-removals-birmingham12.webp`, alt: "The Royals Removals professional team in West Midlands" },
 };
 
-/* ── Why choose ──────────────────────────────────────────── */
+/* ── About ───────────────────────────────────────────────── */
+export const about = {
+  eyebrow: "About Pearl Removals",
+  title: { pre: "Look for the pearl — ", gold: "it means you're in good hands", breakBeforeGold: true } as Title,
+  body: "At Pearl Removals we believe moving should feel calm, not chaotic. Our uniformed team arrives prepared, wraps and protects your belongings properly, and keeps you informed from the first quote to the final box. Every van, every piece of tape and every member of the team carries the same promise: move well, arrive happy.",
+  cta: { label: "Plan Your Move", href: "/#quote" },
+  img: { src: brandKit, alt: "Pearl Removals uniforms, stationery, blankets and packaging" },
+  badge: { title: "Uniformed team", text: "Recognisable & professional" },
+};
+
+/* ── Why choose us ───────────────────────────────────────── */
 export const why = {
-  eyebrow: "Why Royal Removals?",
-  title: { pre: "Moving Made ", gold: "Majestically", post: " Simple" } as Title,
-  intro:
-    "Trusted by hundreds of Birmingham families to deliver a premium, stress-free moving experience. Here is what sets our removal company in Birmingham apart from the rest.",
+  eyebrow: "Why Pearl",
+  title: { pre: "The calm way to ", gold: "move", post: " home or business" } as Title,
+  intro: "Considered planning, careful hands and clear communication — the small details that make a big day feel easy.",
   items: [
-    { title: "Royal-Grade Care", icon: "crown", text: "Every item is treated as if it were our own. We use professional furniture blankets, bubble wrap, and stretch film to protect your belongings from the moment we arrive until the last box is in place." },
-    { title: "Fast Quote Response", icon: "zap", text: "Fill in our simple 2-minute form and receive a personalised, transparent quote within 10 to 15 minutes. No chasing, no waiting around, no automated responses — a real person reviews every request." },
-    { title: "Fully Insured & Safe", icon: "shield", text: "Complete peace of mind with comprehensive goods-in-transit insurance. Your belongings are protected throughout the entire journey from your old home to your new one." },
-    { title: "Flexible Scheduling", icon: "calendar", text: "We work around your timeline. Choose any day of the week including weekends and bank holidays. Need to change your date? No problem — we accommodate changes with minimal notice." },
-    { title: "Transparent Pricing", icon: "receipt", text: "No hidden fees, no surprise charges on the day. The quote we give you is the price you pay. We believe in honest, upfront pricing that respects your budget and your trust." },
-    { title: "Local Birmingham Experts", icon: "map", text: "Born and raised in Birmingham, we know every road, estate, and postcode. This local expertise means faster routes, better parking planning, and a smoother move for you." },
+    { title: "Careful Handling", icon: "shield", text: "Furniture blankets, wrapping and padding as standard, so your belongings arrive just as they left." },
+    { title: "Clear, Tailored Quotes", icon: "receipt", text: "Tell us about your move and we'll come back with a quote built around exactly what you need." },
+    { title: "Planned Properly", icon: "calendar", text: "A clear move plan with timings agreed in advance, so you always know what happens next." },
+    { title: "Friendly, Uniformed Team", icon: "home", text: "Courteous, recognisable movers who treat your home or workplace with respect." },
+    { title: "Packing Made Easy", icon: "package", text: "From a few fragile items to a full house, we can pack, label and unpack for you." },
+    { title: "Home & Business", icon: "building", text: "One trusted team for family homes, flats, offices and commercial premises." },
   ],
-} as const;
+};
 
 /* ── Process ─────────────────────────────────────────────── */
 export const process = {
-  eyebrow: "Simple Process",
-  title: { pre: "How It ", gold: "Works" } as Title,
-  intro:
-    "Moving in Birmingham with our house removal experts is easy, transparent, and stress-free. Here is our simple four-step process.",
+  eyebrow: "Moving Guide",
+  title: { pre: "A simple, ", gold: "assured", post: " process" } as Title,
+  intro: "Three clear steps from first enquiry to the moment you settle in.",
   steps: [
-    { title: "Get Your Free Quote", text: "Fill in our simple 2-minute form with details about your move. Tell us your property type, where you are moving from and to, and your preferred date. You will receive a personalised, transparent quote within minutes." },
-    { title: "Book Your Move", text: "Choose your preferred date, confirm your booking, and relax. There are no hidden fees and the price we quote is the price you pay. We will confirm all the details and keep you informed as your moving day approaches." },
-    { title: "We Do the Heavy Lifting", text: "Our professional team arrives on time, handles everything carefully, and keeps you informed throughout the day. We wrap, load, transport, and unload your belongings with precision and care." },
-    { title: "Settle Into Your New Home", text: "We place everything exactly where you want it. Furniture is reassembled, boxes are placed in the right rooms, and we make sure you are completely happy before we leave. Welcome home." },
+    { title: "Get a Quote", text: "Tell us where you're moving from and to, your preferred date and what's coming with you. We'll prepare a tailored quote." },
+    { title: "Plan Your Move", text: "We agree timings, packing and any special items with you, so moving day runs to a clear, calm plan." },
+    { title: "Settle In", text: "We move, unload and place everything room by room — then leave you to enjoy your new chapter." },
   ],
 };
 
 /* ── What's included ─────────────────────────────────────── */
 export const included = {
-  title: { pre: "What’s Included in Our ", gold: "Removals Service", breakBeforeGold: true } as Title,
-  body:
-    "When you book The Royals Removals, you get more than just transport. Our removals service includes careful loading and unloading, secure handling of furniture and belongings, safe transport, and practical moving support from start to finish. Where needed, we also offer dismantling and reassembly, packing assistance, and same-day moving options, helping customers across Birmingham and the West Midlands move with less stress and more confidence.",
+  title: { pre: "Everything taken care of, ", gold: "box by box", breakBeforeGold: true } as Title,
+  body: "Every Pearl move includes careful loading and unloading, protective wrapping for furniture, secure transport and a friendly team who place everything where you want it. Add professional packing, dismantling and reassembly whenever you need a little more help.",
 };
 
-/* ── Insurance ───────────────────────────────────────────── */
-export const insurance = {
-  eyebrow: "Fully Insured Removals Birmingham",
-  title: { pre: "Why Insurance ", gold: "Matters", post: " When Moving" } as Title,
-  intro:
-    "Moving house or office involves genuine risk. Choosing a fully insured removals company in Birmingham ensures your belongings and property are protected from start to finish — with no compromise.",
-  cards: [
-    {
-      title: "Public Liability Insurance",
-      text: "Our public liability removals cover protects against injury or property damage during your move.",
-      points: ["Covers injury or property damage", "Up to £5 million cover", "Protects from unexpected accidents"],
-      kind: "covered",
-    },
-    {
-      title: "Goods in Transit Insurance",
-      text: "Every item is covered under our goods in transit insurance throughout the entire removal journey.",
-      points: ["Covers items during transport", "Protection against theft, damage, or loss", "Up to £50,000 cover"],
-      kind: "covered",
-    },
-    {
-      title: "What Is Not Covered",
-      text: "In the interest of full transparency, standard insurance does not cover the following:",
-      points: ["Items after delivery at destination", "Self-packed items (if not packed by us)", "Storage (unless separately arranged)"],
-      kind: "excluded",
-    },
+/* ── Fleet / brand ───────────────────────────────────────── */
+export const fleet = {
+  eyebrow: "On the road",
+  title: { pre: "Spot the pearl, ", gold: "know you're in safe hands" } as Title,
+  intro: "Our pearl-white and midnight-navy vans are kept clean, well equipped and ready — from compact vans for smaller moves to Luton vans for full homes.",
+  images: [
+    { src: lutonVan, alt: "Pearl Removals Luton van outside a period townhouse", caption: "Luton vans for full home moves" },
+    { src: lutonVanRear, alt: "Rear doors of a Pearl Removals van with Move well. Arrive happy.", caption: "Move well. Arrive happy." },
+    { src: businessCards, alt: "Pearl Removals business cards", caption: "Your dedicated moving consultant" },
   ],
-  outro: "Want full details on our cover? Read our complete insurance information.",
-  cta: { label: "View Full Insurance Details", href: "/insurance/" },
-} as const;
-
-/* ── Areas ───────────────────────────────────────────────── */
-export const areas = {
-  eyebrow: "Coverage",
-  title: { pre: "Areas We ", gold: "Serve" } as Title,
-  intro:
-    "We cover Birmingham and all surrounding towns and cities across the West Midlands, delivering the same premium service wherever you are. Click an area to learn more.",
-  items: [
-    ["Birmingham", "birmingham"], ["Dudley", "dudley"], ["Sandwell", "sandwell"], ["Walsall", "walsall"],
-    ["Wolverhampton", "wolverhampton"], ["Solihull", "solihull"], ["Coventry", "coventry"], ["Lichfield", "lichfield"],
-    ["Redditch", "redditch"], ["Bromsgrove", "bromsgrove"], ["Wythall", "wythall"], ["Walmley", "walmley"],
-    ["Four Oaks", "four-oaks"], ["Hollywood", "hollywood"], ["Boldmere", "boldmere"], ["Barnt Green", "barnt-green"],
-    ["Droitwich Spa", "droitwich-spa"], ["Alcester", "alcester"], ["Tamworth", "tamworth"], ["Cannock", "cannock"],
-    ["Royal Leamington Spa", "royal-leamington-spa"], ["Nuneaton", "nuneaton"],
-  ].map(([label, slug]) => ({ label, href: `/areas/${slug}/` })),
-  viewAll: { label: "+ View All Areas", href: "/areas/" },
 };
 
-/* ── Reviews (existing integrations only — no written testimonials on the live page) ── */
-export const reviews = {
-  eyebrow: "Customer Reviews",
-  title: { pre: "What Our ", gold: "Customers Say" } as Title,
-  trustpilot: {
-    reviewUrl: "https://www.trustpilot.com/review/theroyalsremovals.co.uk?utm_medium=trustbox&utm_source=TrustBoxReviewCollector",
-    templateId: "56278e9abfbbba0bdcd568bc",
-    businessUnitId: "69f6211d68a3e45cacfe1f93",
-    token: "329da09d-6ed3-4aff-8a41-45443a14059e",
+/* ── Quote ───────────────────────────────────────────────── */
+export const quote = {
+  eyebrow: "Get a Quote",
+  title: { pre: "Tell us about ", gold: "your move" } as Title,
+  intro: "Share a few details and we'll be in touch with a tailored quote.",
+  fields: {
+    name: "Your name",
+    phone: "Phone number",
+    email: "Email address",
+    from: "Moving from (postcode)",
+    to: "Moving to (postcode)",
+    date: "Move date",
+    type: "Type of move",
   },
+  types: ["Home removal", "Business move", "Packing support", "Not sure yet"],
+  submit: "Get a Quote",
+  success: "Thank you — we'll be in touch with your tailored quote.",
+  privacy: "Your details are only used to prepare your quote.",
+  steps: ["Get a quote", "Plan your move", "Settle in"],
 };
 
-/* ── Logistics ───────────────────────────────────────────── */
-export const logistics = {
-  eyebrow: "Birmingham Moving Logistics",
-  title: { pre: "We Handle The ", gold: "Details" } as Title,
-  intro:
-    "Moving in Birmingham requires planning. As local experts, we manage parking and emissions compliance so you don't have to.",
-  cards: [
-    {
-      title: "Parking Dispensations",
-      before: "We can help advise or arrange the necessary parking suspensions for your moving day. Learn more on the ",
-      link: { label: "Birmingham City Council page", href: "https://www.birmingham.gov.uk/info/20109/parking/2012/parking_dispensations" },
-      after: ".",
-      icon: "parking",
-    },
-    {
-      title: "Clean Air Zone (CAZ) Ready",
-      before: "Our modern fleet of removal vehicles is fully compliant with the Birmingham Clean Air Zone. Check details at ",
-      link: { label: "Brum Breathes", href: "https://www.brumbreathes.co.uk/" },
-      after: ".",
-      icon: "leaf",
-    },
-  ],
-  strip: [
-    { src: `${IMG}/the-royals-removals-birmingham2.webp`, alt: "Premium removals van Birmingham" },
-    { src: `${IMG}/the-royals-removals-birmingham6.webp`, alt: "Professional movers team", caption: "Professional & Trusted Team" },
-    { src: `${IMG}/the-royals-removals-birmingham8.webp`, alt: "Professional packing service" },
-    { src: `${IMG}/the-royals-removals-birmingham10.webp`, alt: "Beautiful Birmingham home", caption: "Serving Birmingham & Beyond" },
-  ],
-} as const;
-
-/* ── FAQ (word for word) ─────────────────────────────────── */
+/* ── FAQ ─────────────────────────────────────────────────── */
 export const faq = {
-  eyebrow: "Got Questions?",
+  eyebrow: "Questions",
   title: { pre: "Frequently Asked ", gold: "Questions" } as Title,
   items: [
-    { q: "How quickly will I receive my quote?", a: "You will typically receive your personalised quote within 10 to 15 minutes. Our team is available 7 days a week and reviews every request personally — no automated responses." },
-    { q: "Are you insured for damage?", a: "Yes, we are fully insured with comprehensive goods-in-transit cover. Your belongings are protected throughout the entire move. We also use professional wrapping and padding to prevent damage in the first place." },
-    { q: "Do you offer packing services?", a: "Yes. We offer both full and partial professional packing services. Our trained packers will carefully wrap and box all of your belongings using high-quality materials. We can pack your entire property or focus on fragile and valuable items only." },
-    { q: "Can I move on a weekend or bank holiday?", a: "Absolutely. We operate 7 days a week including weekends and most bank holidays. We understand that moving often needs to happen on specific days, and we are happy to accommodate your preferred schedule." },
-    { q: "How far in advance should I book?", a: "We recommend booking at least 2 to 4 weeks in advance, particularly during peak periods such as summer and the end of the month. However, we do accommodate short-notice and last-minute moves whenever our schedule allows." },
-    { q: "Do you cover areas outside Birmingham?", a: "Yes. While we are based in Birmingham, we serve the entire West Midlands region including Solihull, Sutton Coldfield, Coventry, Wolverhampton, Walsall, Dudley, Sandwell, and many surrounding areas. Contact us to confirm we cover your location." },
-    { q: "How do you handle parking and Clean Air Zone (CAZ) charges?", a: "As local Birmingham movers, we handle all the logistics. We can help guide you on arranging parking dispensations with the City Council if needed, and our modern vehicle fleet meets Clean Air Zone requirements, so you won't face unexpected CAZ charges." },
-    { q: "Do you dismantle and reassemble furniture?", a: "Yes, our team is fully equipped to dismantle and reassemble beds, wardrobes, and other large furniture items. Simply let us know what you need during your quote process so we can allocate the right amount of time for your move." },
+    { q: "How do I get a quote?", a: "Use the quote form on this page — tell us where you're moving from and to, your preferred date and the type of move. We'll get back to you with a quote tailored to your move." },
+    { q: "Do you move both homes and businesses?", a: "Yes. We handle flats, houses and family homes as well as office and commercial relocations, planned around your timings." },
+    { q: "Can you pack everything for me?", a: "Absolutely. Our packing support ranges from a few fragile items to a full home, using quality materials with every box clearly labelled by room." },
+    { q: "How far in advance should I book?", a: "As early as you can, especially for weekends and month-ends — but get in touch whatever your timeline and we'll do our best to help." },
+    { q: "What happens on moving day?", a: "Our uniformed team arrives at the agreed time, protects your furniture and floors, loads carefully, and unloads and places everything room by room at your new home." },
+    { q: "Can you dismantle and reassemble furniture?", a: "Yes — let us know when you request your quote and we'll include dismantling and reassembly in your move plan." },
   ],
 };
 
 /* ── Final CTA ───────────────────────────────────────────── */
 export const finalCta = {
-  title: { pre: "Ready for a ", gold: "Royal Move?" } as Title,
-  body:
-    "Get your free, no-obligation quote in under 2 minutes. Fill out the quick form or call us directly. Our team responds in 10 to 15 minutes.",
-  call: { label: "Call 07345 624506", href: "tel:+447345624506" },
-  whatsapp: { label: "WhatsApp Us", href: "https://wa.me/447345624506" },
-  badges: ["No Hidden Fees", "Fully Insured"],
-  img: { src: `${IMG}/modern_home_exterior.png`, alt: "Beautiful home" },
+  title: { pre: "Move well. ", gold: "Arrive happy." } as Title,
+  body: "Your new chapter deserves a calm start. Tell us about your move and we'll plan the rest together.",
+  cta: { label: "Get a Quote", href: "/#quote" },
+  img: { src: lutonVan, alt: "Pearl Removals van ready for moving day" },
 };
 
 /* ── Footer ──────────────────────────────────────────────── */
 export const footer = {
-  tagline:
-    "Birmingham's most trusted premium home removals service. Stress-free, insured, and royal-grade care for every move.",
+  tagline: "Calm, careful removals for homes and businesses. Move well. Arrive happy.",
   services: [
-    { label: "House Removals Services", href: "/services/house-removals-services/" },
-    { label: "Furniture Removals Services", href: "/services/furniture-removals-services/" },
-    { label: "Office Relocation Services", href: "/services/office-relocation-services/" },
-    { label: "Commercial Removals Services", href: "/services/commercial-removals-services/" },
-    { label: "Packing Services", href: "/services/packing-services/" },
-    { label: "Man and Van Services", href: "/services/man-and-van-services/" },
-    { label: "Equipment Removals Services", href: "/services/equipment-removals-services/" },
-    { label: "Student Removals Services", href: "/services/student-removals-services/" },
+    { label: "Home Removals", href: "/#services" },
+    { label: "Business Moves", href: "/#services" },
+    { label: "Packing Support", href: "/#services" },
+    { label: "Get a Quote", href: "/#quote" },
   ],
-  areas: [
-    { label: "Birmingham", href: "/areas/birmingham/" },
-    { label: "Dudley", href: "/areas/dudley/" },
-    { label: "Sandwell", href: "/areas/sandwell/" },
-    { label: "Walsall", href: "/areas/walsall/" },
-    { label: "Wolverhampton", href: "/areas/wolverhampton/" },
-    { label: "View All Areas →", href: "/areas/" },
+  company: [
+    { label: "About Us", href: "/#about" },
+    { label: "Moving Guide", href: "/#process" },
+    { label: "FAQs", href: "/#faqs" },
+    { label: "Contact", href: "/#quote" },
   ],
-  quote: { label: "Get Free Quote →", href: "/get-a-quote/" },
-  copyright:
-    "© 2026 TRSR LTD. Trading as: The Royals Removals. All rights reserved.  |  Company No. 17089311  |  Registered in England & Wales",
+  quote: { label: "Plan Your Move", href: "/#quote" },
+  copyright: "© 2026 Pearl Removals. All rights reserved.",
   legal: [
-    { label: "Privacy Policy", href: "/privacy/" },
-    { label: "Terms & Conditions", href: "/terms/" },
-    { label: "Sitemap", href: "/sitemap/" },
+    { label: "Privacy Policy", href: "/#" },
+    { label: "Terms & Conditions", href: "/#" },
   ],
 };

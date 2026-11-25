@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { contact, faq } from "@/content/site";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { faq } from "@/content/site";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
 import AnimatedIcon from "@/components/ui/AnimatedIcon";
-import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 
 /** Plus that morphs into a minus when open. */
 function Toggle({ open }: { open: boolean }) {
@@ -26,18 +27,12 @@ export default function FAQSection() {
           <div className="lg:sticky lg:top-32">
             <SectionHeader id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />
             {/* still-have-questions card */}
-            <Reveal delay={0.15} className="group mt-10 overflow-hidden rounded-[28px] bg-ink p-7 text-ivory shadow-soft">
+            <Reveal delay={0.15} className="group mt-10 overflow-hidden rounded-[16px] bg-ink p-7 text-ivory shadow-soft">
               <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/25 to-gold/5 ring-1 ring-gold/40">
-                <AnimatedIcon name="phone" className="h-7 w-7" accentColor="#D8C29B" />
+                <AnimatedIcon name="receipt" className="h-7 w-7" accentColor="#A8D5C5" />
               </span>
               <p className="mt-5 font-display text-2xl font-light">Still have questions?</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <a href={contact.phoneHref} className="btn-gold">{contact.phoneDisplay}</a>
-                <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-                  className="grid h-12 w-12 place-items-center rounded-full border border-ivory/20 transition-colors hover:border-gold hover:bg-gold hover:text-ink">
-                  <WhatsAppIcon className="h-5 w-5" />
-                </a>
-              </div>
+              <Link href="/#quote" className="btn-sea mt-5">Get a Quote <ArrowRight className="h-4 w-4" /></Link>
             </Reveal>
           </div>
         </div>

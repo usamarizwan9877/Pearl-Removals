@@ -16,7 +16,7 @@ function track(e: React.MouseEvent<HTMLElement>) {
 export default function WhyChooseUsSection() {
   return (
     <section id="why-us" aria-labelledby="why-title" className="relative overflow-hidden bg-ink py-24 text-ivory sm:py-32">
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#F6F1E8_1px,transparent_1px),linear-gradient(90deg,#F6F1E8_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#F5F1EA_1px,transparent_1px),linear-gradient(90deg,#F5F1EA_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-gold/10 blur-3xl" />
       <div className="container relative max-w-[1400px]">
         <SectionHeader id="why-title" eyebrow={why.eyebrow} title={why.title} intro={why.intro} dark align="center" />
@@ -25,10 +25,10 @@ export default function WhyChooseUsSection() {
             <Reveal as="li" key={item.title} delay={(i % 3) * 0.1}
               onMouseMove={track}
               className="group relative overflow-hidden rounded-[28px] border border-ivory/10 bg-ivory/[0.02] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 sm:p-10">
-              <span aria-hidden className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(320px_circle_at_var(--mx,50%)_var(--my,0%),rgba(176,141,87,.16),transparent_60%)]" />
+              <span aria-hidden className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(320px_circle_at_var(--mx,50%)_var(--my,0%),rgba(196,165,116,.16),transparent_60%)]" />
               <div className="relative flex items-start justify-between">
                 <span className="relative grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-gold/25 to-gold/[0.04] text-ivory ring-1 ring-gold/30 transition-all duration-500 group-hover:-rotate-6 group-hover:ring-gold">
-                  <AnimatedIcon name={item.icon} className="h-8 w-8" delay={(i % 3) * 0.12} accentColor="#D8C29B" />
+                  <AnimatedIcon name={item.icon} className="h-8 w-8" delay={(i % 3) * 0.12} accentColor="#E2CFA8" />
                 </span>
                 <span aria-hidden className="font-display text-3xl font-light italic text-ivory/15 transition-colors duration-500 group-hover:text-gold/70">{roman[i]}</span>
               </div>
