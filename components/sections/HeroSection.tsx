@@ -21,9 +21,9 @@ export default function HeroSection() {
       <section ref={ref} id="home" aria-labelledby="hero-title" className="relative overflow-hidden bg-ink pt-[84px] text-ivory-50">
         <div className="relative lg:min-h-[640px] xl:min-h-[700px]">
           {/* photo — right side on desktop, below the copy on mobile */}
-          <div className="relative h-[340px] sm:h-[420px] lg:absolute lg:inset-y-0 lg:left-[40%] lg:right-0 lg:h-auto">
+          <div className="relative h-[340px] overflow-hidden sm:h-[420px] lg:absolute lg:inset-y-0 lg:left-[40%] lg:right-0 lg:h-auto">
             <motion.div initial={{ scale: 1.12, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2.2, ease }}
-              style={{ y: imgY }} className="absolute inset-0">
+              style={{ y: imgY }} className="absolute inset-x-0 -top-[14%] bottom-0">
               <Image src={hero.image.src} alt={hero.image.alt} fill priority placeholder="blur" sizes="(min-width:1024px) 60vw, 100vw" className="object-cover object-[60%_50%]" />
             </motion.div>
             {/* navy blend into the photo, like the brand mockup */}
@@ -71,7 +71,7 @@ export default function HeroSection() {
         </div>
 
         {/* brand wave along the bottom edge (seafoam band + gold line) */}
-        <svg aria-hidden viewBox="0 0 1440 70" preserveAspectRatio="none" className="relative -mb-px block h-[46px] w-full sm:h-[60px]">
+        <svg aria-hidden viewBox="0 0 1440 70" preserveAspectRatio="none" className="relative z-10 -mb-px -mt-[46px] block h-[46px] w-full sm:-mt-[60px] sm:h-[60px]">
           <path d="M0 40 C 320 10, 640 70, 960 38 S 1300 14, 1440 30 V70 H0Z" fill="#D4EBE2" />
           <path d="M0 52 C 330 24, 650 78, 970 50 S 1310 28, 1440 42 V70 H0Z" fill="#FAF8F4" />
           <motion.path d="M0 47 C 330 19, 650 73, 970 45 S 1310 23, 1440 37" fill="none" stroke="#C4A574" strokeWidth="2"
